@@ -24,18 +24,31 @@ public class UserController {
 		}
 		return list.toString();		
 	}
-//	这个是添加用户
+	//	这个是添加用户
 	@RequestMapping("addUser")
 	@ResponseBody
-	public String addUser(User user) {
-		boolean tag=us.addUser(user);
+	public String addUser(String userName,String password,String sex) {
+		boolean tag=us.addUser(userName,password,sex);
 		if(tag) {//注册成功，返回到主页
-			
-			return "";	
+			System.out.println("注册成功");
+			return "sucess";	
 		}else {//返回到注册页面
-			
-			return "";	
+			System.out.println("注册失败");
+			return "false";	
 		}		
 	}
+	//登录
+//	@RequestMapping("login")
+//	@ResponseBody
+//	public String login(String UserAccount,String password) {
+//		boolean tag=us.login(UserAccount,password);
+//		if(tag) {//登录成功，返回到主页
+//			System.out.println("登录成功");
+//			return "http://127.0.0.1:8020/WebIntroduction/html/homePage.html?__hbt=1576639420076";	
+//		}else {//返回到注册页面
+//			System.out.println("登录失败");
+//			return "false";	
+//		}		
+//	}
 	
 }

@@ -10,12 +10,9 @@ public class User implements Serializable{
 	private Integer userID;
 	private String userName;
 	private String userPassword;
-	private Integer userAccount;
-	@Override
-	public String toString() {
-		return "User [userID=" + userID + ", userName=" + userName + ", userPassword=" + userPassword + ", userAccount="
-				+ userAccount + "]";
-	}
+	private String userAccount;
+	private String userSex;
+	
 	public Integer getUserID() {
 		return userID;
 	}
@@ -34,20 +31,33 @@ public class User implements Serializable{
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-	public Integer getUserAccount() {
+	public String getUserAccount() {
 		return userAccount;
 	}
-	public void setUserAccount(Integer userAccount) {
+	public void setUserAccount(String userAccount) {
 		this.userAccount = userAccount;
 	}
 	public User() {
 		super();
 	}
-	public User(Integer userID, String userName, String userPassword, Integer userAccount) {
+	public String getUserSex() {
+		return userSex;
+	}
+	public void setUserSex(String userSex) {
+		this.userSex = userSex;
+	}
+	public User(Integer userID, String userName, String userPassword, String userAccount, String userSex) {
 		super();
 		this.userID = userID;
 		this.userName = userName;
 		this.userPassword = userPassword;
 		this.userAccount = userAccount;
+		this.userSex = userSex;
 	}
+	@Override
+	public String toString() {
+		return "User [userID=" + userID + ", userName=" + userName + ", userPassword=" + userPassword + ", userAccount="
+				+ userAccount + ", userSex=" + userSex + "]";
+	}
+	
 }

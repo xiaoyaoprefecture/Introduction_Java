@@ -8,12 +8,17 @@
     
     <!-- 添加用户 -->
     <insert id="addUser" parameterType="aaa">
-    	insert into user_tb values(#{userName},#{userPassword},#{userAccount})
+    	insert into user_tb values(0,#{userName},#{userPassword},#{userAccount},#{userSex})
     </insert>
     
     <!-- 查询是否存在当前用户名的用户 -->
-    <select id="selectUserByUserName" resultType="aaa" parameterType="aaa">
+    <select id="selectUserByUserName" resultType="aaa" parameterType="String">
         select * from user_tb where userName=#{userName}
     </select>
     
+     <!-- 查询是否存在当前账号密码 -->
+ <!-- 	<select id="selectUserByUserName" resultType="aaa" parameterType="String">
+        select * from user_tb where userAccount=#{userAccount} and userPassword=#{password};
+    </select> -->
+
 </mapper>
