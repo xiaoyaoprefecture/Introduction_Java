@@ -2,23 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaoyao.dao.UserDao">
 	<!--查询所有  -->
-    <select id="selectAll" resultType="aaa">
+    <select id="selectAll" resultType="user">
         select * from user_tb
     </select>
     
     <!-- 添加用户 -->
-    <insert id="addUser" parameterType="aaa">
+    <insert id="addUser" parameterType="user">
     	insert into user_tb values(0,#{userName},#{userPassword},#{userAccount},#{userSex})
     </insert>
     
     <!-- 查询是否存在当前用户名的用户 -->
-    <select id="selectUserByUserName" resultType="aaa" parameterType="String">
+    <select id="selectUserByUserName" resultType="user" parameterType="String">
         select * from user_tb where userName=#{userName}
     </select>
+     <!-- 查询是否存在当前账号的用户 -->
+    <select id="selectUserByUserAccount" resultType="user" parameterType="String">
+        select * from user_tb where userAccount=#{userAccount}
+    </select>
+    
     
      <!-- 查询是否存在当前账号密码 -->
- <!-- 	<select id="selectUserByUserName" resultType="aaa" parameterType="String">
-        select * from user_tb where userAccount=#{userAccount} and userPassword=#{password};
-    </select> -->
+	<select id="selectUserByUserNameAndPassword" resultType="user" parameterType="us">
+        select * from user_tb where userAccount=#{userAccount} and userPassword=#{userPassword};
+    </select>
 
 </mapper>

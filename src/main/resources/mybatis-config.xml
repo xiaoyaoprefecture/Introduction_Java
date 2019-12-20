@@ -6,9 +6,7 @@
 <configuration>  
     <!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径  -->  
 	<typeAliases>    
-         <typeAlias type="com.xiaoyao.bean.User" alias="aaa"/>  
+         <typeAlias type="com.xiaoyao.bean.User" alias="user"/> 
+         <typeAlias type="com.xiaoyao.bean.User_Short" alias="us"/> 
     </typeAliases>     
-     <!--  <mappers>  
-     <mapper resource="com/xiaoyao/mapper/UserMapper.xml" />
-    </mappers> -->
 </configuration>

@@ -31,5 +31,5 @@
 	            </property>
 	        </bean>
 	    </mvc:message-converters>
-	</mvc:annotation-driven>	
+	</mvc:annotation-driven>
 </beans>

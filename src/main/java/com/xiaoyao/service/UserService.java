@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xiaoyao.bean.User;
+import com.xiaoyao.bean.User_Short;
 import com.xiaoyao.dao.UserDao;
 
 @Service
@@ -15,15 +16,16 @@ public class UserService {
 	private UserDao ud;
 	
 	//定义一个登录的方法
-//	public boolean login(String UserAccount,String password) {
-//		List<User> list =ud.selectUserByUserName(UserAccount, password);
-//		if(list.size()>0) {
-//			return true;
-//		}else {
-//			return false;
-//		}
-//	}
-//	
+	public boolean login(String UserAccount,String password) {
+		User_Short us=new User_Short(UserAccount,password);
+		List<User> list =ud.selectUserByUserNameAndPassword(us);
+		if(list.size()>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	public List<User>selectAll(){
 		return ud.selectAll();
 	}
@@ -53,7 +55,15 @@ public class UserService {
 
 	//添加一个判断用户是否存在的方法
 	public boolean isHave(String userName) {
-		List<User> list=ud.selectUserByUserName(userName);
+		List<User> list=selectUserByUserName(userName);
 		return list.size()>0?true:false;
+	}
+	//根据用户名查询用户
+	public List<User>selectUserByUserName(String userName){
+		return ud.selectUserByUserName(userName);
+	}
+	//根据账号查询用户
+	public List<User>selectUserByUserAccount(String userAccount){
+		return ud.selectUserByUserAccount(userAccount);
 	}
 }

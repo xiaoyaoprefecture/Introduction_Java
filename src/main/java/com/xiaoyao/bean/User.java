@@ -54,6 +54,11 @@ public class User implements Serializable{
 		this.userAccount = userAccount;
 		this.userSex = userSex;
 	}
+//	@Override
+//	public String toString() {
+//		return "{\"userID\":\""+userID+"\",\"userName\":\""+userName+"\",\"userPassword\":\""+userPassword+"\",\"userAccount\":\""+
+//				userAccount+"\",\"userSex\":\""+userSex+"\"}";			
+//	}	
 	@Override
 	public String toString() {
 		return "User [userID=" + userID + ", userName=" + userName + ", userPassword=" + userPassword + ", userAccount="
